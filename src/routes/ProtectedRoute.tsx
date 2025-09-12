@@ -14,7 +14,7 @@ export function ProtectedRoute({ children }: ProtectedRouteProps) {
     return <div>Loading...</div>;
   }
 
-  if (!user) return <Navigate to={paths.menu} replace />;
+  if (!user) return <Navigate to={paths.login} replace />;
 
   return <>{children}</>;
 }

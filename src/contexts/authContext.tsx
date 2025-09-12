@@ -27,12 +27,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const unsubscribe = authService.observeAuthState((user) => {
-      setUser(user);
-      setLoading(false);
-    });
-
-    return () => unsubscribe();
+    // Inicializar como não logado - contexto controla tudo
+    setUser(null);
+    setLoading(false);
   }, []);
 
   const login = async (credentials: LoginCredentials) => {
@@ -46,6 +43,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const message = getFirebaseErrorMessage(error as string | FirebaseError);
       setError(message);
       setLoading(false);
+      setUser(null);
     }
   };
 
@@ -60,12 +58,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const message = getFirebaseErrorMessage(error as string | FirebaseError);
       setError(message);
       setLoading(false);
+      setUser(null);
     }
   };
 
   const logout = async () => {
     try {
       setLoading(true);
+      setError(null);
       await authService.logOut();
       setUser(null);
       setLoading(false);

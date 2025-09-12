@@ -1,0 +1,128 @@
+/* Substituindo todas as variáveis CSS por valores diretos */
+.login-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f9fafb 0%, #d1fae5 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+}
+
+.back-link {
+  position: absolute;
+  top: -60px;
+  left: 0;
+  color: #059669;
+  text-decoration: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.login-logo {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.logo-icon {
+  width: 64px;
+  height: 64px;
+  background-color: #059669;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  font-size: 2rem;
+  color: white;
+}
+
+.logo-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.logo-subtitle {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.forgot-password {
+  text-align: center;
+}
+
+.forgot-password button {
+  background: none;
+  border: none;
+  color: #059669;
+  font-size: 0.875rem;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.register-link {
+  text-align: center;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.register-link a {
+  color: #059669;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+.status-message {
+  padding: 24px;
+  background-color: rgba(5, 150, 105, 0.1);
+  border: 1px solid rgba(5, 150, 105, 0.2);
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #064e3b;
+  margin-top: 32px;
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    max-width: 100%;
+  }
+
+  .login-page {
+    padding: 16px;
+  }
+
+  .back-link {
+    position: static;
+    margin-bottom: 24px;
+  }
+}
