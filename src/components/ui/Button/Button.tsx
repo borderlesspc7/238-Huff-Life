@@ -10,6 +10,7 @@ interface ButtonProps {
   fullWidth?: boolean;
   disabled?: boolean;
   type?: "button" | "submit" | "reset";
+  className?: string;
   onClick?: () => void;
 }
 
@@ -20,13 +21,15 @@ export const Button: React.FC<ButtonProps> = ({
   fullWidth = false,
   disabled = false,
   type = "button",
+  className = "",
   onClick,
 }) => {
-  const className = [
+  const buttonClassName = [
     "button",
     `button--${variant}`,
     size !== "medium" && `button--${size}`,
     fullWidth && "button--full",
+    className,
   ]
     .filter(Boolean)
     .join(" ");
@@ -34,7 +37,7 @@ export const Button: React.FC<ButtonProps> = ({
   return (
     <button
       type={type}
-      className={className}
+      className={buttonClassName}
       disabled={disabled}
       onClick={onClick}
     >

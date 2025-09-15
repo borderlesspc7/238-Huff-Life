@@ -11,6 +11,7 @@ import { Input } from "../../components/ui/Input/Input";
 import { useNavigate, Link } from "react-router-dom";
 import { paths } from "../../routes/paths";
 import { useAuth } from "../../hooks/useAuth";
+import { FaReact } from "react-icons/fa";
 import "./RegisterPage.css";
 
 export const RegisterPage = () => {
@@ -46,14 +47,15 @@ export const RegisterPage = () => {
   return (
     <div className="registro-page">
       <div className="registro-container">
-        <div className="registro-logo">
-          <div className="logo-icon">✨</div>
-          <h1 className="logo-title">Huff Life</h1>
-          <p className="logo-subtitle">Criar Nova conta</p>
-        </div>
-
         <Card variant="elevated">
           <CardHeader>
+            <div className="registro-logo">
+              <div className="logo-icon">
+                <FaReact />
+              </div>
+              <h1 className="logo-title">Huff Life</h1>
+              <p className="logo-subtitle">Criar Nova conta</p>
+            </div>
             <CardTitle>Criar Nova conta</CardTitle>
             <CardDescription>Faça seu registro para continuar</CardDescription>
           </CardHeader>

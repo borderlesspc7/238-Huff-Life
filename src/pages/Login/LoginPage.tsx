@@ -13,6 +13,7 @@ import { Input } from "../../components/ui/Input/Input";
 import { useNavigate, Link } from "react-router-dom";
 import { paths } from "../../routes/paths";
 import { useAuth } from "../../hooks/useAuth";
+import { FaReact } from "react-icons/fa";
 import "./LoginPage.css";
 
 export const LoginPage = () => {
@@ -41,14 +42,15 @@ export const LoginPage = () => {
   return (
     <div className="login-page">
       <div className="login-container">
-        <div className="login-logo">
-          <div className="logo-icon">✨</div>
-          <h1 className="logo-title">Huff Life</h1>
-          <p className="logo-subtitle">Fazer Login</p>
-        </div>
-
         <Card variant="elevated">
           <CardHeader>
+            <div className="login-logo">
+              <div className="logo-icon">
+                <FaReact />
+              </div>
+              <h1 className="logo-title">Huff Life</h1>
+              <p className="logo-subtitle">Fazer Login</p>
+            </div>
             <CardTitle>Entrar no sistema</CardTitle>
             <CardDescription>Faça login para continuar</CardDescription>
           </CardHeader>

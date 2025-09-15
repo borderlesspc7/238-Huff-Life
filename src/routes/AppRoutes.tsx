@@ -3,12 +3,9 @@ import { paths } from "./paths";
 import { ProtectedRoute } from "./ProtectedRoute";
 import { LoginPage } from "../pages/Login/LoginPage";
 import { RegisterPage } from "../pages/Register/RegisterPage";
+import { DashboardPage } from "../pages/Dashboard/Dashboard";
 
 export const AppRoutes = () => {
-  function Menu() {
-    return <div>Menu</div>;
-  }
-
   return (
     <BrowserRouter>
       <Routes>
@@ -19,7 +16,7 @@ export const AppRoutes = () => {
           path={paths.menu}
           element={
             <ProtectedRoute>
-              <Menu />
+              <DashboardPage />
             </ProtectedRoute>
           }
         />
