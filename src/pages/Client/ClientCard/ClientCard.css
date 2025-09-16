@@ -1,0 +1,180 @@
+/* src/components/clients/ClientCard/ClientCard.css */
+.client-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.client-card:hover {
+  border-color: #059669;
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.1);
+  transform: translateY(-2px);
+}
+
+.client-card.active {
+  border-left: 4px solid #059669;
+}
+
+.client-card.inactive {
+  border-left: 4px solid #ef4444;
+  opacity: 0.7;
+}
+
+.client-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.client-avatar {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #059669, #10b981);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+}
+
+.client-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.client-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 4px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.client-status {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.client-card.active .client-status {
+  background: rgba(5, 150, 105, 0.1);
+  color: #059669;
+}
+
+.client-card.inactive .client-status {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.client-actions {
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.client-card:hover .client-actions {
+  opacity: 1;
+}
+
+.action-btn {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+  background: #f1f5f9;
+  color: #059669;
+}
+
+.client-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.detail-item svg {
+  color: #94a3b8;
+  flex-shrink: 0;
+}
+
+.client-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.purchase-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: #059669;
+  font-size: 14px;
+}
+
+.client-notes {
+  flex: 1;
+  margin-left: 16px;
+}
+
+.notes-preview {
+  font-size: 12px;
+  color: #94a3b8;
+  font-style: italic;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .client-card {
+    padding: 16px;
+  }
+
+  .client-actions {
+    opacity: 1;
+  }
+
+  .client-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .client-notes {
+    margin-left: 0;
+  }
+}

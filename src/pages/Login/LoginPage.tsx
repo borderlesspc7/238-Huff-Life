@@ -33,7 +33,7 @@ export const LoginPage = () => {
     e.preventDefault();
     try {
       await login(formData);
-      navigate(paths.menu);
+      navigate(paths.dashboard);
     } catch (error) {
       console.error("Erro ao fazer login:", error);
     }

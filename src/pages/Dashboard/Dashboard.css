@@ -2,8 +2,8 @@
   padding: 32px;
   max-width: 1400px;
   margin: 0 auto;
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-  min-height: 100vh;
+  background: transparent;
+  min-height: calc(100vh - 70px);
 }
 
 .dashboard-header {
