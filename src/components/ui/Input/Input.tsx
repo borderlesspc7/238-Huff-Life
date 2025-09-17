@@ -14,6 +14,7 @@ interface InputProps {
   disabled?: boolean;
   required?: boolean;
   showPasswordToggle?: boolean;
+  className?: string;
 }
 
 export const Input: React.FC<InputProps> = ({
@@ -26,6 +27,7 @@ export const Input: React.FC<InputProps> = ({
   disabled = false,
   required = false,
   showPasswordToggle = false,
+  className,
 }) => {
   const [showPassword, setShowPassword] = useState(false);
   const inputType = type === "password" && showPassword ? "text" : type;
@@ -41,7 +43,7 @@ export const Input: React.FC<InputProps> = ({
       <div className="input-wrapper">
         <input
           type={inputType}
-          className={`input ${error ? "input--error" : ""}`}
+          className={`input ${error ? "input--error" : ""} ${className}`}
           placeholder={placeholder}
           value={value}
           onChange={(e) => onChange?.(e.target.value)}

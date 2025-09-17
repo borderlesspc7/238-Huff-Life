@@ -8,7 +8,7 @@ export interface Client {
   createdAt: Date;
   updatedAt: Date;
   lastPurchase?: Date;
-  totalPurchases: number;
+  totalPurchases?: number;
   status: "active" | "inactive";
 }
 

@@ -60,6 +60,12 @@
 }
 
 .client-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-badge {
   font-size: 12px;
   font-weight: 500;
   padding: 2px 8px;
@@ -68,13 +74,39 @@
   letter-spacing: 0.5px;
 }
 
-.client-card.active .client-status {
+.client-card.active .status-badge {
   background: rgba(5, 150, 105, 0.1);
   color: #059669;
 }
 
-.client-card.inactive .client-status {
+.client-card.inactive .status-badge {
   background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.status-toggle {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-toggle:hover {
+  background: #f1f5f9;
+  color: #059669;
+}
+
+.client-card.active .status-toggle {
+  color: #059669;
+}
+
+.client-card.inactive .status-toggle {
   color: #ef4444;
 }
 

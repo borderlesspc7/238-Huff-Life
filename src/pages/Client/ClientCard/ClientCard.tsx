@@ -10,6 +10,8 @@ import {
   FiMoreVertical,
   FiEdit,
   FiEye,
+  FiToggleLeft,
+  FiToggleRight,
 } from "react-icons/fi";
 import "./ClientCard.css";
 
@@ -18,6 +20,7 @@ interface ClientCardProps {
   onView: (client: Client) => void;
   onEdit: (client: Client) => void;
   onDelete: (client: Client) => void;
+  onToggleStatus: (client: Client) => void;
 }
 
 export const ClientCard: React.FC<ClientCardProps> = ({
@@ -25,6 +28,7 @@ export const ClientCard: React.FC<ClientCardProps> = ({
   onView,
   onEdit,
   onDelete,
+  onToggleStatus,
 }) => {
   const formatDate = (date: Date) => {
     return new Date(date).toLocaleDateString("pt-BR");
@@ -45,7 +49,24 @@ export const ClientCard: React.FC<ClientCardProps> = ({
         </div>
         <div className="client-info">
           <h3 className="client-name">{client.name}</h3>
-          <span className={client.status}></span>
+          <div className="client-status">
+            <span className={`status-badge ${client.status}`}>
+              {client.status === "active" ? "Ativo" : "Inativo"}
+            </span>
+            <button
+              className="status-toggle"
+              onClick={() => onToggleStatus(client)}
+              title={`${
+                client.status === "active" ? "Desativar" : "Ativar"
+              } cliente`}
+            >
+              {client.status === "active" ? (
+                <FiToggleRight size={16} />
+              ) : (
+                <FiToggleLeft size={16} />
+              )}
+            </button>
+          </div>
         </div>
         <div className="client-actions">
           <Button variant="ghost" onClick={() => onView(client)}>
@@ -80,7 +101,7 @@ export const ClientCard: React.FC<ClientCardProps> = ({
       <div className="client-footer">
         <div className="purchase-info">
           <FiDollarSign size={14} />
-          <span>Total gasto: {formatCurrency(client.totalPurchases)}</span>
+          <span>Total gasto: {formatCurrency(client.totalPurchases || 0)}</span>
         </div>
         <div className="client-notes">
           {client.notes && (

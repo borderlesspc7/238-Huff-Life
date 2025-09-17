@@ -13,7 +13,6 @@ import {
   Timestamp,
 } from "firebase/firestore";
 import type { Client, ClientPurchase } from "../types/client";
-import { setDoc } from "firebase/firestore/lite";
 
 export const clientService = {
   // Criar cliente
@@ -78,11 +77,23 @@ export const clientService = {
         throw new Error("Cliente não encontrado");
       }
 
-      const updateData = {
+      // Preparar dados para atualização, convertendo Date para Timestamp
+      const updateData: Record<string, unknown> = {
         ...clientData,
         updatedAt: Timestamp.fromDate(new Date()),
       };
-      await setDoc(clientRef, updateData);
+
+      // Remover campos que não devem ser atualizados
+      delete updateData.id;
+      delete updateData.createdAt;
+      delete updateData.totalPurchases; // Não deve ser atualizado diretamente
+
+      // Converter lastPurchase se existir
+      if (updateData.lastPurchase instanceof Date) {
+        updateData.lastPurchase = Timestamp.fromDate(updateData.lastPurchase);
+      }
+
+      await updateDoc(clientRef, updateData);
     } catch (error) {
       throw new Error("Erro ao atualizar cliente: " + error);
     }
