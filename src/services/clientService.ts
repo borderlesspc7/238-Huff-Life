@@ -12,6 +12,7 @@ import {
   orderBy,
   Timestamp,
 } from "firebase/firestore";
+import type { UpdateData } from "firebase/firestore";
 import type { Client, ClientPurchase } from "../types/client";
 
 export const clientService = {
@@ -78,7 +79,7 @@ export const clientService = {
       }
 
       // Preparar dados para atualização, convertendo Date para Timestamp
-      const updateData: Record<string, unknown> = {
+      const updateData: UpdateData<Client> = {
         ...clientData,
         updatedAt: Timestamp.fromDate(new Date()),
       };
