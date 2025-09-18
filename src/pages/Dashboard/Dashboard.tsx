@@ -24,7 +24,6 @@ import {
   FiRefreshCw,
 } from "react-icons/fi";
 import "./Dashboard.css";
-
 interface SalesData {
   dailySales: number;
   monthlySales: number;

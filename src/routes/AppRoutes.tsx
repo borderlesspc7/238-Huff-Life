@@ -5,6 +5,7 @@ import { LoginPage } from "../pages/Login/LoginPage";
 import { RegisterPage } from "../pages/Register/RegisterPage";
 import { DashboardPage } from "../pages/Dashboard/Dashboard";
 import { ClientsPage } from "../pages/Client/ClientsPage";
+import { StockPage } from "../pages/Stock/StockPage";
 
 export const AppRoutes = () => {
   return (
@@ -28,6 +29,15 @@ export const AppRoutes = () => {
           element={
             <ProtectedRoute>
               <ClientsPage />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path={paths.stock}
+          element={
+            <ProtectedRoute>
+              <StockPage />
             </ProtectedRoute>
           }
         />

@@ -58,26 +58,7 @@ const defaultMenuItems: MenuItem[] = [
     id: "estoque",
     label: "Estoque",
     icon: FiPackage,
-    items: [
-      {
-        id: "produtos",
-        label: "Produtos",
-        icon: FiPackage,
-        path: "/estoque/produtos",
-      },
-      {
-        id: "categorias",
-        label: "Categorias",
-        icon: FiFileText,
-        path: "/estoque/categorias",
-      },
-      {
-        id: "movimentacao",
-        label: "Movimentação",
-        icon: FiTrendingUp,
-        path: "/estoque/movimentacao",
-      },
-    ],
+    path: "/estoque",
   },
   {
     id: "clientes",
